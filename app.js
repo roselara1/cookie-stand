@@ -7,15 +7,15 @@ var hours = ['6am', '7am', '8am', '9am','10am', '11am','12pm', '1pm','2pm', '3pm
 
 var firstAndPike = {
      name: 'First and Pike',
-     //create  key value pairs inside of the called. They are called properties
-     minCustPerHour: 15,
-     maxCustPerHour: 75,
-     avgCookieSoldByHour: 40,
+     //create  key value pairs inside. (properties)
+     minCustPerHour: 23,
+     maxCustPerHour: 65,
+     avgCookieSoldPerHour: 6.3,
      randCustPerHour: [],
      cookiesSoldPerHour: [],
      totalCookies: 0,
      //method for random customers by hour
-     calcRandCustByHour: function () {
+     calcRandCustPerHour: function () {
          for var a = 0; a < hours.length; a++) {
              this.randCustPerHour(Math.floor(Math.random() * (this.maxCustPerhour - this.minCustPerHour + 1);
              console.log(this.randCustPerHour[a]);
@@ -23,9 +23,9 @@ var firstAndPike = {
 //method for cookies sold by hour
 
 calcCookieSoldPerHour: functions() {
-for (var j = 0; j < hours.length; j++) {
-    this.CookieSoldPerHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustPerHour[j]);
-    console.log(this.cookiesSoldPerHour[j]);
+for (var b = 0; b < hours.length; b++) {
+    this.CookieSoldPerHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustPerHour[b]);
+    console.log(this.cookiesSoldPerHour[b]);
 }
 },
 render: function(){
@@ -40,11 +40,11 @@ render: function(){
     h3EL.textContent = this.name;
     fandp.appendChild(h3EL);
 
-    for var(k = 0; k < hours.length; k++) {
+    for var(c = 0; c < hours.length; c++) {
         //stepping through the hours aria-readonly="
         var liEl = document.createElement('li');
         //creating the li elements with text of the hours
-        liEl.textContent = hours[k] + ': ' + this.cookieSoldPerHour[k] + 'cookies';
+        liEl.textContent = hours[c] + ': ' + this.cookieSoldPerHour[c] + 'cookies';
         console.log(liEl);
         firstAndPike.appendChild(liEl)
     }
