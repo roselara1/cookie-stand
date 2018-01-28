@@ -89,9 +89,9 @@ for (var h = 0; h < hours.length; h++) {
 var tdTotal = document.createElement("tdTotal");
 tdTotal.textContent = "Total Sales " + this.calcCookieSoldPerHour;
 trEL.appendChild(tdTotal);
-tableEl.appendChild(rfEL);
+tableEl.appendChild(trEL);
 
-}
+};
 
 firstAndPike.render();
 seaTacAirport.render();
