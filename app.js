@@ -18,24 +18,26 @@ var firstAndPike = {
   //method for random customers by hour
   calcRandCustPerHour: function () {
     for (var a = 0; a < hours.length; a++) {
-      this.randCustPerHour.push(Math.floor(Math.random() * (this.maxCustPerhour - this.minCustPerHour + 1)) + this.minCustPerHour);
+      this.randCustPerHour.push(Math.floor(Math.random() * (this.maxCustPerhour - this.minCustPerHour + 1)), + this.minCustPerHour);
       console.log(this.randCustPerHour[a]);
     }
   },
+
   //method for cookies sold by hour
   calcCookieSoldPerHour: function() {
     for (var b = 0; b < hours.length; b++) {
-      this.cookieSoldPerHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustPerHour[b]));
-      console.log(this.cookieSoldPerHour[b]);
+      this.cookieSoldPerHour.push(Math.random() * Math.round(this.avgcookieSoldPerHour * this.randCustPerHour[b]));
       this.totalCookies += this.cookieSoldPerHour[b];
+      console.log(this.cookieSoldPerHour[b]);
     }
   },
   render: function(){
+    this.calcRandCustPerHour();
+    this.calcCookieSoldPerHour();
     var firstPike = document.getElementById('firstPike');
     var fandp = document.getElementById('fandp');
     //calling the methos in the object literal
-    this.calcRandCustPerHour();
-    this.calcCookieSoldPerHour();
+   
 
     var h3El = document.createElement('h3');
     //give text to the new h3 element
