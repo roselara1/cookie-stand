@@ -16,13 +16,12 @@ var firstAndPike = {
   cookieSoldPerHour: [],
   totalCookies: 0,
 
-var allLocations = [];
-
 //define var that are dynamic depending on cookies
 var totalCookiesPerHour = 0;
 //total for all locations by hour
-
 var netTotal = 0;
+//define var for locations
+var allLocations = [];
 
 function MakeLocation (
 
@@ -37,7 +36,7 @@ function MakeLocation (
     this.randCustPerHour = [];
     this.totalCookiesPerHour = [];
     this.totalCookies = 0;
-    allocations.push(this);
+    allLocations.push(this);
 
     //method for random customers by hour
   calcRandCustPerHour: function() {
@@ -68,10 +67,7 @@ function makeStores () {
 }
 makeStores();
 
-//create the table in js
-
-
-
+//create the table
 //make header row
 function headerRow() {
     var cookiestands = document.getElementById('cookiestands');

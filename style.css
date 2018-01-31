@@ -38,6 +38,7 @@ h3  {
 ul  {
             font-family: Arial, Helvetica, sans-serif;
             color: rgb(206, 206, 206);
+            list-style-image: url ("images/salmoncookielogoT.png");
             font-size: 2vw;
             text-align: center;
             list-style: decimal inside none;
@@ -48,6 +49,7 @@ ul  {
 ol  {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(206, 206, 206);
+    list-style-type: decimal;
     font-size: 2vw;
     text-align: left;
     margin-top: 5px;
@@ -77,6 +79,7 @@ navbar {
     width:50px;
     min-height: 50px;
     float: center;
+    display: table;
     margin-top: 20px;
     list-style-type: circle;
 }
