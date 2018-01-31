@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 //create an array of open store hours
 
 var hours = ['6am', '7am', '8am', '9am','10am', '11am','12pm', '1pm','2pm', '3pm','4pm', '5pm','6pm', '7pm'];
@@ -24,14 +24,12 @@ var totalCookiesPerHour = 0;
 
 var netTotal = 0;
 
-function MakeLocation(
+function MakeLocation (
 
     name,
     minCustPerHour,
     maxCustPerHour,
-    avgCookieSoldPerHour
-)   {
-
+    avgCookieSoldPerHour) {
     this.name = name;
     this.minCustPerHour = minCustPerHour;
     this.maxCustPerHour = maxCustPerHour;
@@ -59,7 +57,8 @@ function MakeLocation(
   };
 }
 
-function makeStands () {
+//calling constructors
+function makeStores () {
 
     new MakeLocation("First and Pike", 23, 65, 6.3);
     new MakeLocation("SeaTac Airport", 3, 24, 1.2)
@@ -67,14 +66,14 @@ function makeStands () {
     new MakeLocation("Capitol Hill", 20, 38, 2.3);
     new MakeLocation("Alki", 2, 16, 4.6);
 }
-makeStands();
+makeStores();
 
 //create the table in js
 
 
 
 //make header row
-function makeHeaderRow() {
+function headerRow() {
     var cookiestands = document.getElementById('cookiestands');
     var trEL = document.createElement("tr");
     var thEl = document.createElement("th");
@@ -82,7 +81,7 @@ function makeHeaderRow() {
 }
 //for loop for hours
 for (var h = 0; h < hours.length; h++) {
-    var tdEl = document.createElement("td"); 
+    tdEl = document.createElement("td"); 
     tdEL.textcontent = hours[h] + ":" + this.cookieSoldPerHour[h];
     trEL.appendChild(tdEL);
 }
@@ -92,6 +91,7 @@ trEL.appendChild(tdTotal);
 tableEl.appendChild(trEL);
 
 };
+headerRow();
 
 firstAndPike.render();
 seaTacAirport.render();
