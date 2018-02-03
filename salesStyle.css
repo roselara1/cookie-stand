@@ -83,14 +83,3 @@ navbar {
     margin-top: 20px;
     list-style-type: circle;
 }
-
-footer {
-
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(206, 206, 206);
-    font-size: 2vw;
-    text-align: center;
-    list-style: decimal inside none;
-    margin-top: 5px;
-    margin-bottom: 150px;
-}

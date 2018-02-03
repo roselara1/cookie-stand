@@ -1,96 +1,134 @@
-'use strict'
+'use strict';
 //create an array of open store hours
 
 var hours = ['6am', '7am', '8am', '9am','10am', '11am','12pm', '1pm','2pm', '3pm','4pm', '5pm','6pm', '7pm'];
 
-
-//First and Pike Location
-
-var firstAndPike = {
-  name: 'First and Pike',
-  //create  key value pairs inside. (properties)
-  minCustPerHour: 23,
-  maxCustPerHour: 65,
-  avgCookieSoldPerHour: 6.3,
-  randCustPerHour: [],
-  cookieSoldPerHour: [],
-  totalCookies: 0,
-
 //define var that are dynamic depending on cookies
-var totalCookiesPerHour = 0;
+// var totalCookiePerHour = 0;
 //total for all locations by hour
 var netTotal = 0;
 //define var for locations
 var allLocations = [];
 
-function MakeLocation (
+function MakeLocation (name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour)
 
-    name,
-    minCustPerHour,
-    maxCustPerHour,
-    avgCookieSoldPerHour) {
-    this.name = name;
-    this.minCustPerHour = minCustPerHour;
-    this.maxCustPerHour = maxCustPerHour;
-    this.avgCookieSoldPerHour = avgCookieSoldPerHour;
-    this.randCustPerHour = [];
-    this.totalCookiesPerHour = [];
-    this.totalCookies = 0;
-    allLocations.push(this);
+{
+  this.name = name;
+  this.minCustPerHour = minCustPerHour;
+  this.maxCustPerHour = maxCustPerHour;
+  this.avgCookieSoldPerHour = avgCookieSoldPerHour;
+  this.randCustPerHour = [];
+  this.totalCookiePerHour = [];
+  this.totalCookies = 0;
+  allLocations.push(this);
 
-    //method for random customers by hour
-  calcRandCustPerHour: function() {
+  //method for random customers by hour
+  this.calcRandCustPerHour= function() {
     for (var a = 0; a < hours.length; a++) {
-      this.randCustPerHour.push(Math.floor(Math.random() * (this.maxCustPerhour - this.minCustPerHour + 1)), + this.minCustPerHour);
-      console.log(this.randCustPerHour[a]);
+      this.randCustPerHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
     }
   };
-
   //method for cookies sold by hour
-  calcCookieSoldPerHour: function() {
+  this.calcCookieSoldPerHour= function() {
     for (var b = 0; b < hours.length; b++) {
-      this.cookieSoldPerHour.push(Math.random() * Math.round(this.avgcookieSoldPerHour * this.randCustPerHour[b]));
-      this.totalCookies += this.cookieSoldPerHour[b];
-      console.log(this.cookieSoldPerHour[b]);
+      this.totalCookiePerHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustPerHour[b]));
+      this.totalCookies += this.totalCookiePerHour[b];
+      console.log(this.totalCookiePerHour[b]);
     }
   };
+  this.calcRandCustPerHour();
+  this.calcCookieSoldPerHour();
 }
 
 //calling constructors
 function makeStores () {
 
-    new MakeLocation("First and Pike", 23, 65, 6.3);
-    new MakeLocation("SeaTac Airport", 3, 24, 1.2)
-    new MakeLocation("Seattle Center", 11, 38, 3.7);
-    new MakeLocation("Capitol Hill", 20, 38, 2.3);
-    new MakeLocation("Alki", 2, 16, 4.6);
+  new MakeLocation('First and Pike', 23, 65, 6.3);
+  new MakeLocation('SeaTac Airport', 3, 24, 1.2);
+  new MakeLocation('Seattle Center', 11, 38, 3.7);
+  new MakeLocation('Capitol Hill', 20, 38, 2.3);
+  new MakeLocation('Alki', 2, 16, 4.6);
 }
 makeStores();
 
 //create the table
 //make header row
-function headerRow() {
-    var cookiestands = document.getElementById('cookiestands');
-    var trEL = document.createElement("tr");
-    var thEl = document.createElement("th");
+function headerRow(hours) {
+  var cookiestores = document.getElementById('cookiestores');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Store Name';
+  trEl.appendChild(thEl);
+
+  //for loop for hours
+  for (var h = 0; h < hours.length; h++) {
+    thEl = document.createElement('th');
+    thEl.textcontent = hours[h];
     trEl.appendChild(thEl);
+  }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Daily Location Total';
+  trEl.appendChild(thEl);
+  cookiestores.appendChild(trEl);
 }
-//for loop for hours
-for (var h = 0; h < hours.length; h++) {
-    tdEl = document.createElement("td"); 
-    tdEL.textcontent = hours[h] + ":" + this.cookieSoldPerHour[h];
-    trEL.appendChild(tdEL);
+headerRow(hours);
+
+function makeDataRow () {
+  for (var j = 0; j < allLocations.length; j++) {
+    var cookiestores = document.getElementById('cookiestores');
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    tdEl.textContent = allLocations[j].name;
+    trEl.appendChild(tdEl);
+
+    for (var i = 0; i < hours.length; i++) {
+      tdEl = document.createElement('td');
+      tdEl.textContent = allLocations[j].totalCookiePerHour[i];
+      trEl.appendChild(tdEl);
+    }
+
+    tdEl = document.createElement('td');
+    tdEl.textContent = allLocations[j].totalCookies;
+    trEl.appendChild(tdEl);
+    cookiestores.appendChild(trEl);
+    console.log(makeDataRow);
+  }
 }
-var tdTotal = document.createElement("tdTotal");
-tdTotal.textContent = "Total Sales " + this.calcCookieSoldPerHour;
-trEL.appendChild(tdTotal);
-tableEl.appendChild(trEL);
+// }
+makeDataRow();
 
-};
-headerRow();
+function displayFooterTotal() {
+  var cookiestores = document.getElementById('cookiestores');
+  var trEl = document.createElement('tr');
+  var footerTotal = document.createElement('footerTotal');
+  footerTotal.textContent = 'Totals';
+  trEl.appendChild(footerTotal);
 
-firstAndPike.render();
-seaTacAirport.render();
-seattleCenter.render();
-capitolHill.render();
-alki.render();
+  //for loop for hours
+  for (var h = 0; h < hours.length; h++) {
+    for (var f = 0; f < allLocations.length; f++) {
+      totalCookies += allLocations[h].totalCookiePerHour[i]
+      // thEl = document.createElement('th');
+      // thEl.textcontent = hours[h];
+      // trEl.appendChild(thEl);
+    }
+    thEl = document.createElement('th');
+    thEl.textContent = 'Daily Location Total';
+    trEl.appendChild(thEl);
+    cookiestores.appendChild(trEl);
+
+    //  ???????? //
+
+    var cookiestores = document.getElementById('cookiestores');
+    footerTotal.textContent = 'Total Sales ' + this.calcCookieSoldPerHour;
+    trEL.appendChild(footerTotal);
+    tableEl.appendChild(trEL);
+  }
+}
+MakeLocation();
+
+// firstAndPike.render();
+// seaTacAirport.render();
+// seattleCenter.render();
+// capitolHill.render();
+// alki.render();
