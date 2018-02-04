@@ -99,7 +99,7 @@ function displayFooterTotal() {
       netTotal += netTotal;
       trEl.appendChild(footerDataEl);
       // cookiestores.appendChild(footerDataEl);
-      var tdFEl = document.createElement('td'); 
+      var tdFEl = document.createElement('td');
       tdFEl.textContent = netTotal;
       thEL.appendChild(tdFEl);
       cookiestores.appendChild(tr);
@@ -108,4 +108,44 @@ function displayFooterTotal() {
 }
 
 displayFooterTotal();
+
+var storeSubmit = document.getElementById('store-submit');
+
+function newSubmit () {
+  var trEl = document.createElement('tr');
+  trEl.appendChild(trEl);
+  var tdEl = document.createElement('td');
+  tdEl.textContent = storename;
+  trEl.appendChild(tdEl);
+  console.log(tdEl);
+}
+
+function newStore(event) {
+  var newStoreName = event.target.storename.value;
+  var newMinCust = parseInt(event.target.mincust.value);
+  var newMaxCust = parseInt(event.target.maxcust.value);
+  var newAvgCookie = parseInt(event.target.avgcookie.value);
+  console.log(newStore);
+
+  if(!storename || mincust || maxcust || avgcookie)
+    return alert ('Missing Data Points');
+
+  new MakeLocation(newStoreName, newMinCust, newMaxCust, newAvgCookie);
+  storeSubmit.calcCookieSoldPerHour();
+
+  for (var s = 0; s < hours.length; s++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = newStore.totalCookiePerHour[s];
+    trEl.appendChild(tdEl);
+  }
+
+  event.target.storename.value = null;
+  event.target.mincust.value = null;
+  event.target.maxcust.value = null;
+  event.target.avgcookie.value = null;
+
+  newStore.addEventListener('submit', newStore);
+  makeDataRow();
+}
+newStore();
 //MakeLocation();
