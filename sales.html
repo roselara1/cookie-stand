@@ -4,7 +4,7 @@
 <title>Salmon Cookies Shop</title>
 <a href="index.html"><img src="images/salmoncookielogoT.png" alt="An image of a salmon" title="Pat's Salmon"/></a>
 <link rel="icon" type="tab icon" href="images/salmoncookielogoT.png" />
-<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="salesStyle.css"/>
 </head>
 <body>
 <h1> Pat's Salmon Cookies Counter</h1>
@@ -17,6 +17,21 @@
     <tbody id="tbody"></tbody>
     <!-- <tfoot id="tfooter"></tfoot> -->
 </table>
+
+
+<form id="store-form">
+    <fieldset>
+        <legend>Add Store Location</legend>
+        <label for="storename">Name of Location: </label>
+        <input name="storename" type="text" />
+        <label for="mincust">Minimum Customers per Hour: </label>
+        <input name="mincust" type="text" />
+        <label for="maxcust">Maximum Customers per Hour: </label>
+        <input name="maxcust" type="text" />
+        <label for="avgcook">Average Cookies per Sale: </label>
+        <input name="avgcook" type="text"/>
+        <button type="submit">Submit New Store</button>
+        </fieldset>
 
 <script src="app.js"></script>
 

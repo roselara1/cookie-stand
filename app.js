@@ -28,7 +28,7 @@ function MakeLocation (name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHou
     for (var b = 0; b < hours.length; b++) {
       this.totalCookiePerHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustPerHour[b]));
       this.totalCookies += this.totalCookiePerHour[b];
-      console.log(this.totalCookiePerHour[b]);
+      //console.log(this.totalCookiePerHour[b]);
     }
   };
   this.calcRandCustPerHour();
@@ -43,7 +43,7 @@ function makeStores () {
   new MakeLocation('Alki', 2, 16, 4.6);
 }
 makeStores();
-//create the table
+
 //make header row
 function makeHeader() {
   var thEl = document.getElementById('thead');
@@ -55,7 +55,9 @@ function makeHeader() {
     thEl.appendChild(newHead);
   }
 }
+
 makeHeader();
+
 function makeDataRow () {
   for (var j = 0; j < allLocations.length; j++) {
     var cookiestores = document.getElementById('cookiestores');
@@ -72,10 +74,11 @@ function makeDataRow () {
     tdEl.textContent = allLocations[j].totalCookies;
     trEl.appendChild(tdEl);
     cookiestores.appendChild(trEl);
-    console.log(makeDataRow);
+    // console.log(makeDataRow);
   }
 }
 makeDataRow();
+
 function displayFooterTotal() {
   netTotal = 0;
   for (var i = 0; i < hours.length; i++) {
@@ -83,7 +86,9 @@ function displayFooterTotal() {
     var trEl = document.createElement('tr');
     var footerTotal = document.createElement('td');
     footerTotal.textContent = 'Totals';
+    trEl.appendChild(footerTotal);
     cookiestores.appendChild(trEl);
+    console.log(cookiestores);
     //for loop for hours
     for (var h = 0; h < hours.length; h++) {
       var footerDataEl = document.createElement('td');
@@ -94,12 +99,13 @@ function displayFooterTotal() {
       netTotal += netTotal;
       trEl.appendChild(footerDataEl);
       // cookiestores.appendChild(footerDataEl);
-      var tdFEl = document.createElement('td');
+      var tdFEl = document.createElement('td'); 
       tdFEl.textContent = netTotal;
       thEL.appendChild(tdFEl);
       cookiestores.appendChild(tr);
     }
   }
 }
+
 displayFooterTotal();
-MakeLocation();
+//MakeLocation();
