@@ -56,6 +56,19 @@ ol  {
     margin-bottom: 150px;
 }
 
+#locations li{
+    list-style-image: url('images/fishsmall.jpg');
+    list-style-position: outside;
+    font-size: 90%;
+    text-align: left;
+    margin-left: 15%;
+}
+
+fishbullet {
+width: 10%;
+height: 10%;
+}
+
 li {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(206, 206, 206);
