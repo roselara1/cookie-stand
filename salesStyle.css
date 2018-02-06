@@ -56,19 +56,6 @@ ol  {
     margin-bottom: 150px;
 }
 
-#locations li{
-    list-style-image: url('images/fishsmall.jpg');
-    list-style-position: outside;
-    font-size: 90%;
-    text-align: left;
-    margin-left: 15%;
-}
-
-fishbullet {
-width: 10%;
-height: 10%;
-}
-
 li {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(206, 206, 206);
@@ -93,18 +80,104 @@ navbar {
     min-height: 50px;
     float: center;
     display: table;
-    margin-top: 20px auto;
+    margin: 20px auto;
     list-style-type: circle;
     background: rgb(220, 144, 144);
 }
 
-footer {
-
+table {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(206, 206, 206);
     font-size: 2vw;
-    text-align: center;
+    text-align: left;
+    vertical-align: 25%;
+    padding: 20px;
+    border-collapse: collapse;
+    border-right: 2px 0;
     list-style: decimal inside none;
+    border: 1px solid black;
+    width: 100%;
     margin-top: 5px;
     margin-bottom: 150px;
+    background-color: rgb(142, 36, 134);;
+}
+
+th {
+    border: solid;
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+}
+
+td {
+    border: solid;
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+}
+
+
+table thead:nth-child(even) {
+    background-color: antiquewhite;
+}
+
+
+
+fieldset {
+    float: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background: rgb(230, 173, 173);
+    color: color: rgb(206, 206, 206);
+    margin-bottom: 90px;
+}
+
+legend {
+    float: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    height:100%;
+    background: rgb(220, 144, 144);
+    color: color: rgb(206, 206, 206);
+}
+
+label {
+    float: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 65%;
+    width: 30%;
+    height:25%;
+    background: rgb(220, 144, 144);
+    color: color: rgb(206, 206, 206);
+}
+
+input {
+    float: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 15%;
+    height:40%;
+    background: rgb(249, 242, 242);
+    color: color: rgb(206, 206, 206);
+}
+
+
+button {
+    border: none;
+    padding: 10px 30px;
+    background: #000;
+    color: rgb(171, 100, 100);
+    border-radius: 3px;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: 350ms;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(77, 235, 161);
+    box-shadow: #000, 2px;
 }
